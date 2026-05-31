@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1
+kind: Application
+metadata:
+  name: traefik
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+     repoURL: 'git@github.com:aronheredi/devops-learn.git'
+     targetRevision: main
+     path: cluster-config/infra/traefik
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: traefik
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+

@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1
+kind: Application
+metadata:
+  name: cert-manager
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+     repoURL: 'git@github.com:aronheredi/devops-learn.git'
+     targetRevision: main
+     path: cluster-config/infra/cert-manager
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: cert-manager
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+
