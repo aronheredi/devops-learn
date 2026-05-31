@@ -10,7 +10,7 @@ spec:
   source:
     # Replace this with your actual Git repository URL (HTTPS or SSH)
     repoURL: 'git@github.com:aronheredi/devops-learn.git'
-    targetRevision: HEAD
+    targetRevision: main
     path: cluster-config/apps
   destination:
     server: 'https://kubernetes.default.svc'
