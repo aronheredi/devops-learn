@@ -1,5 +1,11 @@
-dev:
-  enabled: true
-  devRootToken: "root"
+# Configuration values for the HashiCorp Vault Helm Chart
+server:
+  # Enable standalone dev mode (in-memory storage, automatically unsealed)
+  dev:
+    enabled: true
+    devRootToken: "root"
+
+# Enable the built-in Vault web UI dashboard
 ui:
   enabled: true
+  serviceType: "ClusterIP"
