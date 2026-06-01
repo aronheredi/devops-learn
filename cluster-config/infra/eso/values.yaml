@@ -1,1 +1,13 @@
+# cluster-config/infra/eso/values.yaml
+
+# Automatically install CRDs
 installCRDs: true
+
+# Explicitly enable the core operator components
+install: true
+
+webhook:
+  create: true
+
+certController:
+  create: true
