@@ -1,0 +1,17 @@
+image:
+  tag: "placeholder"
+
+tls:
+  secretName: statuspage-tls
+
+probes:
+  liveness:
+    path: /health
+    port: 8080
+    initialDelaySeconds: 5
+    periodSeconds: 10
+  readiness:
+    path: /health
+    port: 8080
+    initialDelaySeconds: 5
+    periodSeconds: 10
